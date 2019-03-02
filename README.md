@@ -19,9 +19,18 @@ Following soft need a few more packages to run:
 * [Simple authentication on nginx servers](https://www.digitalocean.com/community/tutorials/how-to-set-up-password-authentication-with-nginx-on-ubuntu-14-04)
 
 ## Installation
+Execute following files **from this directory**.
+
+### Binding `sites-available`
+Remove `/etc/nginx/sites-available` and link this one from repository.
+
+```
+sudo rm -r /etc/nginx/sites-available
+sudo ln -s "$(pwd)/sites-available" /etc/nginx/sites-available
+```
 
 ### Add symlinks to `int` and `test` stages
-Execute following files **from this directory**.
+Links stages configs to stages directory main files.
 ```
 ln -s "$(pwd)/int/nginx.config" "$(pwd)/sites-available/int"
 ln -s "$(pwd)/test/nginx.config" "$(pwd)/sites-available/test"
